@@ -1,0 +1,42 @@
+<ng-container *ngIf="loading; else content">
+    <app-loader />
+</ng-container>
+<ng-template #content>
+    <div class="max-w-xl mx-auto">
+        <h1 class="text-2xl font-bold mb-6">Modifier le produit</h1>
+
+        <form *ngIf="form" [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+            <input formControlName="title" class="w-full border px-3 py-2 rounded" placeholder="Nom" />
+            <div class="text-sm text-red-500" *ngIf="title?.invalid && title?.touched">
+                Veuillez saisir un titre valide
+            </div>
+            <input formControlName="price" type="number" class="w-full border px-3 py-2 rounded" placeholder="Prix" />
+            <div class="text-sm text-red-500" *ngIf="price?.invalid && price?.touched">
+                Veuillez saisir un prix valide
+            </div>
+
+            <input formControlName="category" class="w-full border px-3 py-2 rounded" placeholder="Catégorie" />
+            <div class="text-sm text-red-500" *ngIf="category?.invalid && category?.touched">
+                Veuillez saisir une catégorie valide
+            </div>
+
+            <textarea formControlName="description" class="w-full border px-3 py-2 rounded"
+                placeholder="Description"></textarea>
+            <div class="text-sm text-red-500" *ngIf="description?.invalid && description?.touched">
+                Veuillez saisir une description valide
+            </div>
+
+            <div class="flex gap-4">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded">
+                    Mettre à jour
+                </button>
+
+                <button type="button" (click)="cancel()" class="border px-4 py-2 rounded">
+                    Annuler
+                </button>
+            </div>
+
+        </form>
+    </div>
+</ng-template>

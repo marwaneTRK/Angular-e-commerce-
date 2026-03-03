@@ -1,0 +1,37 @@
+<div class="flex justify-between mb-6">
+    <h1 class="text-2xl font-bold">Utilisateurs</h1>
+
+    <a routerLink="/admin/users/add" class="bg-blue-600 text-white px-4 py-2 rounded">
+        + Ajouter
+    </a>
+</div>
+
+<table class="w-full bg-white shadow rounded">
+    <thead>
+        <tr>
+            <td class="p-3">Name</td>
+            <td class="p-3">email</td>
+            <td class="p-3">role</td>
+            <td class="p-3">Action</td>
+        </tr>
+    </thead>
+    <tr *ngFor="let user of users" class="border-b">
+        <td class="p-3">{{ user.name }}</td>
+        <td class="p-3">{{ user.email }}</td>
+        <td class="p-3">{{ user.role }}</td>
+        <td class="p-3">
+            <a [routerLink]="['/admin/users', user.id, 'edit']"
+                class="bg-yellow-500 text-white px-3 py-1 rounded text-sm">
+                Modifier
+            </a>
+        </td>
+    </tr>
+
+</table>
+ <app-confirm-modal
+      [visible]="showModal"
+      title="Suppression utilisateur"
+      message="Voulez-vous vraiment supprimer cet utilisateur ?"
+      (confirm)="confirmDelete()"
+      (cancel)="closeModal()"
+    />

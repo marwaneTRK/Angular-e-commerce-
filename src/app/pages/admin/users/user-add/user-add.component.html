@@ -1,0 +1,29 @@
+<h1 class="text-2xl font-bold mb-6">Ajouter utilisateur</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4 max-w-md">
+
+    <input formControlName="name" class="border px-3 py-2 w-full" placeholder="Nom" />
+    <div class="text-sm text-red-500" *ngIf="name?.invalid && name?.touched">
+        Veuillez saisir un nom valide
+    </div>
+    <input formControlName="email" class="border px-3 py-2 w-full" placeholder="Email" />
+    <div class="text-sm text-red-500" *ngIf="email?.invalid && email?.touched">
+        Veuillez saisir un email valide
+    </div>
+    <select formControlName="role" class="border px-3 py-2 w-full">
+        <option value="admin">Admin</option>
+        <option value="client">Client</option>
+    </select>
+    <div class="text-sm text-red-500" *ngIf="role?.invalid && role?.touched">
+        Veuillez choisir un role valide
+    </div>
+    <label class="flex gap-2 items-center">
+        <input type="checkbox" formControlName="activated" />
+        Activé
+    </label>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">
+        Enregistrer
+    </button>
+
+</form>

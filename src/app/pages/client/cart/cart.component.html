@@ -1,0 +1,56 @@
+<h2 class="text-3xl font-bold mb-6">My Cart</h2>
+
+<div *ngIf="cart.length; else empty">
+
+  <div
+    *ngFor="let item of cart"
+    class="bg-white border p-4 rounded mb-3 flex justify-between items-center"
+  >
+    <div>
+      <p class="font-semibold">
+        {{ item.product.name }}
+      </p>
+      <p class="text-gray-500">
+        {{ item.product.price }} $
+      </p>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button
+        (click)="decrease(item.product.id)"
+        class="px-3 py-1 border"
+      >−</button>
+
+      <span class="font-semibold">
+        {{ item.quantity }}
+      </span>
+
+      <button
+        (click)="increase(item.product.id)"
+        class="px-3 py-1 border"
+      >+</button>
+    </div>
+
+    <div class="font-semibold">
+      {{ item.product.price * item.quantity }} $
+    </div>
+
+    <button
+      (click)="remove(item.product.id)"
+      class="text-red-600"
+    >
+      Remove
+    </button>
+  </div>
+
+  <div class="mt-6 text-right">
+    <p class="text-xl font-bold">
+      Total: {{ total }} $
+    </p>
+  </div>
+
+</div>
+
+<ng-template #empty>
+  <p class="text-gray-500">Your cart is empty.</p>
+</ng-template>

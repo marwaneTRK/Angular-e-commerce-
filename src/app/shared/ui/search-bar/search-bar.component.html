@@ -1,0 +1,7 @@
+<input
+      type="text"
+      class="border px-3 py-2 rounded w-full"
+      [value]="value"
+      (input)="valueChange.emit($any($event.target).value)"
+      placeholder="Search products..."
+    />

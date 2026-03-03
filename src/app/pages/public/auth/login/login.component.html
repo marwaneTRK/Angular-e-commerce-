@@ -1,0 +1,45 @@
+<div class="max-w-md mx-auto border rounded-lg shadow p-6 mt-10">
+      <h2 class="text-2xl font-bold mb-4 text-center">
+        Connexion
+      </h2>
+
+      <div *ngIf="error" class="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
+        {{ error }}
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+
+        <input
+          type="email"
+          placeholder="Email"
+          class="border px-4 py-2 rounded"
+          formControlName="email"
+        />
+
+        <div class="text-sm text-red-500"
+             *ngIf="email?.invalid && email?.touched">
+          Email invalide
+        </div>
+
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          class="border px-4 py-2 rounded"
+          formControlName="password"
+        />
+
+        <div class="text-sm text-red-500"
+             *ngIf="password?.invalid && password?.touched">
+          Mot de passe requis (min 6 caractères)
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+        >
+          Se connecter
+        </button>
+
+      </form>
+    </div>

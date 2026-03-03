@@ -1,0 +1,33 @@
+<div class="max-w-xl mx-auto">
+  <h1 class="text-2xl font-bold mb-6">Ajouter un produit</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+    <input formControlName="title" placeholder="Nom" class="w-full border px-3 py-2 rounded" />
+    <div class="text-sm text-red-500" *ngIf="title?.invalid && title?.touched">
+      Veuillez saisir un titre valide
+    </div>
+    <input formControlName="price" type="number" placeholder="Prix" class="w-full border px-3 py-2 rounded" />
+    <div class="text-sm text-red-500" *ngIf="price?.invalid && price?.touched">
+      Veuillez saisir un prix valide
+    </div>
+    <input formControlName="category" placeholder="Catégorie" class="w-full border px-3 py-2 rounded" />
+    <div class="text-sm text-red-500" *ngIf="category?.invalid && category?.touched">
+      Veuillez saisir une catégorie valide
+    </div>
+    <textarea formControlName="description" class="w-full border px-3 py-2 rounded" placeholder="Description">
+        </textarea>
+    <div class="text-sm text-red-500" *ngIf="description?.invalid && description?.touched">
+      Veuillez saisir une description valide
+    </div>
+    <div class="flex gap-4">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded">
+        Enregistrer
+      </button>
+
+      <button type="button" (click)="cancel()" class="px-4 py-2 border rounded">
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>
