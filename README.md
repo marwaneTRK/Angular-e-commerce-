@@ -4,6 +4,8 @@ This repository is a learning-focused Angular 19 e-commerce app where I practice
 
 The goal is to showcase how I organize an Angular codebase like a production app, even when some features are intentionally mock/local.
 
+This repository is also a **free e-commerce example template**: anyone can use it as a starter, learning reference, or base structure for their own Angular shop project.
+
 ## Why this project
 
 I built this project to demonstrate:
@@ -201,3 +203,4 @@ Planned improvements:
 - Add HTTP interceptors and token strategy
 - Expand unit/integration tests for guards and services
 - Add strict typing for all domain entities and DTOs
+
